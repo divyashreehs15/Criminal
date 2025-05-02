@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Request Visitation - Family Portal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .request-form {
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/family/dashboard">Family Portal</a>
+      <a href="/logout" class="btn btn-outline-light">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Form Section -->
+  <div class="container">
+    <div class="request-form mx-auto" style="max-width: 600px;">
+      <h2 class="mb-4 text-center">Request for Visitation</h2>
+      <form id="visitForm">
+        <div class="mb-3">
+          <label class="form-label">Criminal Case ID</label>
+          <input type="text" class="form-control" id="caseId" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Family Member Name</label>
+          <input type="text" class="form-control" id="familyName" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Relation to Inmate</label>
+          <input type="text" class="form-control" id="relation" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Preferred Date for Visit</label>
+          <input type="date" class="form-control" id="visitDate" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Phone Number</label>
+          <input type="tel" class="form-control" id="phoneNumber" required>
+        </div>
+        <button type="submit" class="btn btn-dark w-100">Submit Request</button>
+      </form>
+
+      <div id="message" class="mt-4 text-success text-center"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3 mt-5">
+    <small>&copy; 2025 Criminal Management System. Family Access</small>
+  </footer>
+
+  <!-- Script to handle submission -->
+  <script>
+    document.getElementById('visitForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const caseId = document.getElementById('caseId').value;
+      const familyName = document.getElementById('familyName').value;
+      const relation = document.getElementById('relation').value;
+      const visitDate = document.getElementById('visitDate').value;
+      const phoneNumber = document.getElementById('phoneNumber').value;
+
+      // Create a visit request object
+      const request = {
+        caseId,
+        familyName,
+        relation,
+        visitDate,
+        phoneNumber,
+        status: "Pending"
+      };
+
+      // Save into localStorage
+      let requests = JSON.parse(localStorage.getItem('visitRequests')) || [];
+      requests.push(request);
+      localStorage.setItem('visitRequests', JSON.stringify(requests));
+
+      // Confirmation Message
+      document.getElementById('message').textContent = "Request Submitted Successfully!";
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Family Dashboard - Criminal Management System</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .record-card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/family/dashboard">Family Portal</a>
+      <a href="/logout" class="btn btn-outline-light">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="container mt-4">
+    <h2 class="text-center mb-4">Welcome, Family Member</h2>
+    <p class="text-center">Here you can view case details, hearing dates, health status, and earnings of your loved ones.</p>
+  </div>
+
+  <!-- Information Section -->
+  <div class="container my-5">
+
+    <div class="record-card">
+      <h5>Criminal Basic Details</h5>
+      <p><strong>Name:</strong> John Doe</p>
+      <p><strong>Case ID:</strong> C12345</p>
+      <p><strong>Crime:</strong> Theft</p>
+      <p><strong>Status:</strong> Under Trial</p>
+    </div>
+
+    <div class="record-card">
+      <h5>Health Updates</h5>
+      <p><strong>Health Status:</strong> Stable</p>
+      <p><strong>Last Checkup:</strong> 2025-04-15</p>
+    </div>
+
+    <div class="record-card">
+      <h5>Work Earnings</h5>
+      <p><strong>Amount Earned:</strong> ₹5000</p>
+      <p><strong>Last Updated:</strong> 2025-04-20</p>
+    </div>
+
+    <div class="record-card">
+      <h5>Hearing Details</h5>
+      <p><strong>Next Court Date:</strong> 2025-05-10</p>
+      <p><strong>Lawyer Contact:</strong> Advocate Smith (Phone: 9876543210)</p>
+    </div>
+
+    <div class="record-card">
+      <h5>Visitation Information</h5>
+      <p><strong>Next Eligible Visit:</strong> 2025-05-05</p>
+    </div>
+    <a href="visit_request.html" class="btn btn-outline-dark my-3">Request a Visit</a>
+
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3 mt-5">
+    <small>&copy; 2025 Criminal Management System. Family Access</small>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
